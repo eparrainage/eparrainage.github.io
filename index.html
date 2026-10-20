@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ensamien Parrainage</title>
+<meta name="description" content="Ensamien Parrainage: older students mentoring newer ones, and free tools built for students. Vault for course resources, Flow for class timetables.">
+<meta name="theme-color" content="#560261">
+<link rel="canonical" href="https://parrainage.hclap.tech/">
+<meta property="og:title" content="Ensamien Parrainage">
+<meta property="og:description" content="Students helping students. Mentoring, course resources and free tools built by students.">
+<meta property="og:url" content="https://parrainage.hclap.tech/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23560261'/%3E%3Cpath d='M11 7h6.5a5.5 5.5 0 0 1 0 11H15v7h-4zm4 4v3h2.3a1.5 1.5 0 0 0 0-3z' fill='white'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 800;font-display:swap;src:url(/assets/fonts/inter.woff2) format("woff2")}
+:root{
+--background:#fff;--foreground:#191919;--text:#37352f;--muted:#f7f7f5;--muted-foreground:#6b6a66;--subtle:#fbfbfa;
+--border:rgba(55,53,47,.12);--border-strong:rgba(55,53,47,.2);--hover:rgba(55,53,47,.06);
+--primary:#560261;--primary-hover:#470150;--primary-soft:#f6ecf7;--primary-soft-strong:#eddcf0;--primary-line:#e2c9e6;--ring:rgba(86,2,97,.28);
+--tag-gray:#e3e2e0;--tag-gray-ink:#32302c;--tag-green:#dbeddb;--tag-green-ink:#1c3829;--tag-purple:#e8deee;--tag-purple-ink:#412454;
+--tag-blue:#d3e5ef;--tag-blue-ink:#183347;--tag-yellow:#fdecc8;--tag-yellow-ink:#402c1b;--tag-red:#ffe2dd;--tag-red-ink:#5d1715;
+--r-xs:4px;--r-sm:6px;--r-md:8px;--r-lg:12px;--r-xl:16px;
+--shadow-card:0 0 0 1px rgba(15,15,15,.06),0 2px 4px rgba(15,15,15,.06);
+--font-sans:"Inter",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+--tap:44px;--gutter:16px;--ease:cubic-bezier(.2,0,0,1);
+color-scheme:light;font-family:var(--font-sans);font-synthesis:none;-webkit-text-size-adjust:100%
+}
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--background);color:var(--text);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{color:var(--foreground);font-weight:700;letter-spacing:-.03em;line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+::selection{background:var(--primary-soft-strong);color:var(--primary)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:var(--r-xs)}
+.icon{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-999px;top:8px;z-index:60;padding:8px 12px;border-radius:var(--r-sm);background:var(--primary);color:#fff}
+.skip:focus{left:8px}
+
+/* Top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(10px);-webkit-backdrop-filter:saturate(1.6) blur(10px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:8px;height:60px}
+.brand{display:inline-flex;align-items:center;gap:9px;min-height:var(--tap);color:var(--foreground);text-decoration:none;margin-right:auto}
+.brand-mark{display:grid;place-items:center;width:28px;height:28px;flex:none;border:2px solid var(--foreground);border-radius:6px;background:#fff;font-size:1rem;font-weight:800;line-height:1;box-shadow:2px 2px 0 var(--primary)}
+.brand-word{font-size:1.02rem;font-weight:700;letter-spacing:-.02em}
+.nav{display:flex;gap:2px}
+.nav a{display:inline-flex;align-items:center;min-height:36px;padding:0 10px;border-radius:var(--r-sm);color:var(--muted-foreground);font-size:.9rem;font-weight:500;text-decoration:none}
+.nav a:hover{background:var(--hover);color:var(--foreground)}
+@media(max-width:640px){.nav{display:none}}
+
+/* Buttons and tags */
+.btn{appearance:none;border:1px solid transparent;border-radius:var(--r-md);min-height:var(--tap);padding:10px 16px;background:var(--primary);color:#fff;font:inherit;font-size:.95rem;font-weight:500;line-height:1.15;text-decoration:none;white-space:nowrap;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .15s var(--ease)}
+.btn:hover{background:var(--primary-hover)}
+.btn.soft{background:var(--primary-soft);color:var(--primary)}
+.btn.soft:hover{background:var(--primary-soft-strong)}
+.btn.outline{background:var(--background);color:var(--text);border-color:var(--border-strong)}
+.btn.outline:hover{background:var(--hover)}
+.btn.sm{min-height:36px;padding:6px 12px;font-size:.88rem}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;min-height:24px;padding:1px 9px;border-radius:var(--r-xs);background:var(--tag-purple);color:var(--tag-purple-ink);font-size:.8rem;font-weight:500}
+.tag{display:inline-flex;align-items:center;min-height:20px;padding:0 7px;border-radius:var(--r-xs);background:var(--tag-gray);color:var(--tag-gray-ink);font-size:.72rem;font-weight:500;white-space:nowrap}
+.tag.green{background:var(--tag-green);color:var(--tag-green-ink)}
+.tag.blue{background:var(--tag-blue);color:var(--tag-blue-ink)}
+.tag.yellow{background:var(--tag-yellow);color:var(--tag-yellow-ink)}
+.tag.purple{background:var(--tag-purple);color:var(--tag-purple-ink)}
+.tag.red{background:var(--tag-red);color:var(--tag-red-ink)}
+
+/* Hero */
+.hero{padding:72px 0 56px;text-align:center}
+.hero h1{margin:18px auto 0;max-width:780px;font-size:clamp(2.2rem,6vw,3.6rem);letter-spacing:-.045em}
+.hl{position:relative;white-space:nowrap;color:var(--primary)}
+.hl i{position:absolute;left:-4px;right:-4px;bottom:.08em;height:.32em;background:var(--primary-soft-strong);border-radius:3px;z-index:-1}
+.hl{z-index:0}
+.lede{margin:20px auto 0;max-width:600px;color:var(--muted-foreground);font-size:clamp(1.02rem,2.4vw,1.15rem)}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:28px}
+
+/* Sections */
+section{padding:48px 0}
+.sec-head{max-width:640px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(1.6rem,4vw,2.1rem)}
+.sec-head p{margin-top:10px;color:var(--muted-foreground)}
+.kicker{display:block;margin-bottom:8px;color:var(--primary);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.band{background:var(--subtle);border-block:1px solid var(--border)}
+
+/* App cards */
+.apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+.app{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r-xl);background:#fff;box-shadow:var(--shadow-card);overflow:hidden;transition:box-shadow .2s var(--ease),transform .2s var(--ease)}
+.app:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(15,15,15,.06),0 10px 28px rgba(15,15,15,.1)}
+.shot{height:210px;padding:22px 22px 0;background:linear-gradient(180deg,var(--primary-soft),#fff);border-bottom:1px solid var(--border);overflow:hidden}
+.win{height:100%;border:1px solid var(--border-strong);border-bottom:0;border-radius:10px 10px 0 0;background:#fff;box-shadow:0 8px 24px rgba(86,2,97,.08);overflow:hidden}
+.win-bar{display:flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-bottom:1px solid var(--border);background:var(--muted)}
+.win-bar i{width:7px;height:7px;border-radius:50%;background:var(--border-strong)}
+.win-bar span{margin-left:8px;color:var(--muted-foreground);font-size:.68rem}
+.app-body{display:flex;flex-direction:column;gap:12px;flex:1;padding:22px}
+.app-title{display:flex;align-items:center;gap:10px}
+.app-title .brand-mark{width:32px;height:32px}
+.app-title h3{font-size:1.35rem}
+.app-title .tag{margin-left:auto}
+.app-body p{color:var(--muted-foreground)}
+.feats{display:grid;gap:6px;margin:2px 0 0;padding:0;list-style:none;font-size:.93rem}
+.feats li{display:flex;gap:8px;align-items:flex-start}
+.feats .icon{width:16px;height:16px;margin-top:3px;color:var(--primary)}
+.app-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:auto;padding-top:8px}
+.app-foot .who{margin-left:auto;color:var(--muted-foreground);font-size:.82rem}
+
+/* Vault mock: a file list */
+.files{padding:10px 12px;font-size:.72rem}
+.files .crumb{color:var(--muted-foreground);margin-bottom:8px}
+.row{display:flex;align-items:center;gap:8px;height:27px;padding:0 6px;border-radius:5px}
+.row:nth-child(3){background:var(--hover)}
+.row .ic{width:14px;height:14px;border-radius:3px;background:var(--tag-gray);flex:none}
+.row .ic.f{background:var(--tag-yellow)}
+.row b{font-weight:500;color:var(--foreground);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .tag{font-size:.6rem;min-height:16px;padding:0 5px}
+
+/* Flow mock: a week grid */
+.week{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:10px 12px;font-size:.62rem}
+.week .d{color:var(--muted-foreground);font-weight:600;text-align:center;padding-bottom:2px}
+.week .c{height:30px;border-radius:5px;padding:3px 5px;font-weight:600;line-height:1.2;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.c.p{background:var(--tag-purple);color:var(--tag-purple-ink)}
+.c.b{background:var(--tag-blue);color:var(--tag-blue-ink)}
+.c.g{background:var(--tag-green);color:var(--tag-green-ink)}
+.c.y{background:var(--tag-yellow);color:var(--tag-yellow-ink)}
+.c.e{background:var(--muted)}
+
+/* Mentoring */
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
+.card{padding:22px;border:1px solid var(--border);border-radius:var(--r-lg);background:#fff}
+.card .num{display:grid;place-items:center;width:32px;height:32px;margin-bottom:14px;border-radius:var(--r-md);background:var(--primary-soft);color:var(--primary);font-weight:700}
+.card h3{font-size:1.08rem}
+.card p{margin-top:6px;color:var(--muted-foreground);font-size:.94rem}
+
+/* Drives */
+.drives{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px}
+.drive{display:flex;align-items:center;gap:10px;min-height:56px;padding:10px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:#fff;text-decoration:none}
+.drive:hover{background:var(--hover)}
+.drive b{color:var(--foreground);font-weight:600}
+.drive .tag{margin-left:auto}
+
+/* Next */
+.next{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding:32px;border-radius:var(--r-xl);background:var(--primary);color:#fff}
+.next h2{color:#fff;font-size:clamp(1.5rem,3.6vw,2rem)}
+.next p{margin-top:10px;color:rgba(255,255,255,.82)}
+.next ul{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.next li{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:var(--r-md);background:rgba(255,255,255,.1);font-weight:500}
+.next li .icon{color:#fff}
+.next .btn{margin-top:20px;background:#fff;color:var(--primary)}
+.next .btn:hover{background:var(--primary-soft)}
+@media(max-width:760px){.next{grid-template-columns:1fr;padding:24px}}
+
+footer{margin-top:48px;padding:28px 0 40px;border-top:1px solid var(--border);color:var(--muted-foreground);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+footer nav{display:flex;gap:16px;margin-left:auto}
+footer a{text-decoration:none}
+footer a:hover{color:var(--foreground)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></symbol>
+<symbol id="i-drive" viewBox="0 0 24 24"><path d="M8 3h8l6 11-4 7H6l-4-7z"/><path d="M8 3l6 11h8M2 14l6-11M6 21l4-7h12"/></symbol>
+<symbol id="i-school" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></symbol>
+</svg>
+
+<header class="top">
+<div class="wrap">
+<a class="brand" href="/" aria-label="Ensamien Parrainage home"><span class="brand-mark" aria-hidden="true">P</span><span class="brand-word">Ensamien Parrainage</span></a>
+<nav class="nav" aria-label="Sections"><a href="#apps">Apps</a><a href="#mentoring">Mentoring</a><a href="#drives">Drives</a></nav>
+<a class="btn sm outline" href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener"><svg class="icon"><use href="#i-in"/></svg>Follow</a>
+</div>
+</header>
+
+<main id="main">
+<div class="wrap">
+<section class="hero">
+<span class="eyebrow"><svg class="icon" style="width:14px;height:14px"><use href="#i-users"/></svg>By students, for students</span>
+<h1>Nobody should start <span class="hl"><i aria-hidden="true"></i>alone</span>.</h1>
+<p class="lede">Ensamien Parrainage pairs older students with newer ones, and builds free tools that make student life simpler: one place for every course, one link for every timetable.</p>
+<div class="actions">
+<a class="btn" href="#apps">See our apps<svg class="icon"><use href="#i-arrow"/></svg></a>
+<a class="btn soft" href="#mentoring">How mentoring works</a>
+</div>
+</section>
+</div>
+
+<section id="apps" class="band">
+<div class="wrap">
+<div class="sec-head"><span class="kicker">Apps</span><h2>Two tools, one design, free for every student.</h2><p>Built and run by the team, with no ads and no student account needed to read anything.</p></div>
+<div class="apps">
+
+<article class="app">
+<div class="shot" aria-hidden="true"><div class="win">
+<div class="win-bar"><i></i><i></i><i></i><span>vault.hclap.tech</span></div>
+<div class="files">
+<div class="crumb">CI / CS2C / S1</div>
+<div class="row"><span class="ic f"></span><b>Data structures</b><span class="tag">Folder</span></div>
+<div class="row"><span class="ic f"></span><b>Inferential statistics</b><span class="tag">Folder</span></div>
+<div class="row"><span class="ic"></span><b>Linux summary</b><span class="tag blue">Note</span></div>
+<div class="row"><span class="ic"></span><b>TP3 Cryptography.ipynb</b><span class="tag yellow">Notebook</span></div>
+<div class="row"><span class="ic"></span><b>Support de cours.pdf</b><span class="tag red">PDF</span></div>
+</div>
+</div></div>
+<div class="app-body">
+<div class="app-title"><span class="brand-mark" aria-hidden="true">V</span><h3>Vault</h3><span class="tag green">Live</span></div>
+<p>Every course, kept in one place. Notes, exercises, lab work and corrected solutions, sorted by cycle, program and module.</p>
+<ul class="feats">
+<li><svg class="icon"><use href="#i-check"/></svg>Instant search across every file</li>
+<li><svg class="icon"><use href="#i-check"/></svg>PDFs, notebooks and code open right in the browser</li>
+<li><svg class="icon"><use href="#i-check"/></svg>Open source: anyone can add their notes on GitHub</li>
+</ul>
+<div class="app-foot"><a class="btn" href="https://vault.hclap.tech/">Open Vault<svg class="icon"><use href="#i-arrow"/></svg></a><span class="who">For all students</span></div>
+</div>
+</article>
+
+<article class="app">
+<div class="shot" aria-hidden="true"><div class="win">
+<div class="win-bar"><i></i><i></i><i></i><span>flow.hclap.tech</span></div>
+<div class="week">
+<span class="d">Mon</span><span class="d">Tue</span><span class="d">Wed</span><span class="d">Thu</span><span class="d">Fri</span>
+<span class="c p">Linux<br>8:30</span><span class="c b">Net<br>8:30</span><span class="c e"></span><span class="c g">Stats<br>8:30</span><span class="c p">TP<br>8:30</span>
+<span class="c y">Python<br>10:30</span><span class="c e"></span><span class="c p">Crypto<br>10:30</span><span class="c b">DSA<br>10:30</span><span class="c e"></span>
+<span class="c g">TD<br>14:00</span><span class="c y">Lang<br>14:00</span><span class="c e"></span><span class="c y">Python<br>14:00</span><span class="c b">TP<br>14:00</span>
+</div>
+</div></div>
+<div class="app-body">
+<div class="app-title"><span class="brand-mark" aria-hidden="true">F</span><h3>Flow</h3><span class="tag green">Live</span></div>
+<p>Clean weekly timetables for every class. The delegate imports the official schedule, checks the detected courses, then shares one link or a PDF.</p>
+<ul class="feats">
+<li><svg class="icon"><use href="#i-check"/></svg>Reads timetables from a PDF or a photo</li>
+<li><svg class="icon"><use href="#i-check"/></svg>One workspace per class, run by its delegate</li>
+<li><svg class="icon"><use href="#i-check"/></svg>Students just open the link, no sign-up</li>
+</ul>
+<div class="app-foot"><a class="btn" href="https://flow.hclap.tech/">Open Flow<svg class="icon"><use href="#i-arrow"/></svg></a><span class="who">For class delegates</span></div>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="mentoring">
+<div class="wrap">
+<div class="sec-head"><span class="kicker">Mentoring</span><h2>A mentor from day one.</h2><p>Every newcomer gets an older student who has been through the same courses, the same exams and the same doubts.</p></div>
+<div class="cards3">
+<div class="card"><span class="num">1</span><h3>Get matched</h3><p>New students are paired with a mentor from an older year at the start of the year.</p></div>
+<div class="card"><span class="num">2</span><h3>Ask anything</h3><p>Courses, exams, internships, choosing a program after prépa: your mentor shares what worked for them.</p></div>
+<div class="card"><span class="num">3</span><h3>Pass it on</h3><p>Once you are ahead, you mentor the next students and add your notes to the shared resources.</p></div>
+</div>
+</div>
+</section>
+
+<section id="drives" class="band">
+<div class="wrap">
+<div class="sec-head"><span class="kicker">Shared drives</span><h2>Slides, past exams, scanned notes.</h2><p>Our Google Drives cover the programs that are not in Vault yet.</p></div>
+<div class="drives">
+<a class="drive" href="https://drive.google.com/drive/folders/1agpbin9asgD10WXHt4Agk_-0C27z8CY-?usp=drive_link" rel="noopener"><svg class="icon"><use href="#i-drive"/></svg><b>API1</b><span class="tag">2026-2027</span></a>
+<a class="drive" href="https://drive.google.com/drive/folders/13TV1AZulLeBDfWJQB11-BYGQg9lmQzL9?usp=drive_link" rel="noopener"><svg class="icon"><use href="#i-drive"/></svg><b>API2</b><span class="tag">2026-2027</span></a>
+<a class="drive" href="https://drive.google.com/drive/folders/186BMD4eDyG8JPjyYd6-sNqbF8_W_XPgL?usp=drive_link" rel="noopener"><svg class="icon"><use href="#i-drive"/></svg><b>GSI</b><span class="tag">2025-2026</span></a>
+<a class="drive" href="https://drive.google.com/drive/folders/16gkD6kp0codf8mjscpTy4R54hoFfGbHf?usp=drive_link" rel="noopener"><svg class="icon"><use href="#i-drive"/></svg><b>GM2A</b><span class="tag">2026-2027</span></a>
+<a class="drive" href="https://drive.google.com/drive/folders/1-APZVKuBcKRbjmePPZj6OHiQq5TOmYAY?usp=drive_link" rel="noopener"><svg class="icon"><use href="#i-drive"/></svg><b>MSEI</b><span class="tag">2025-2026</span></a>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="next">
+<div>
+<h2>Want this at your school?</h2>
+<p>Vault and Flow were built so other schools can use them too. If your school has a mentoring program, or you want to start one, let's talk.</p>
+<a class="btn" href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener"><svg class="icon"><use href="#i-in"/></svg>Message us on LinkedIn</a>
+</div>
+<ul>
+<li><svg class="icon"><use href="#i-school"/></svg>Your school's courses in Vault</li>
+<li><svg class="icon"><use href="#i-plus"/></svg>Your classes in Flow</li>
+<li><svg class="icon"><use href="#i-users"/></svg>A mentoring program, ready to run</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<span>Ensamien Parrainage. A student initiative, not an official school service.</span>
+<nav aria-label="Links"><a href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener">LinkedIn</a><a href="https://github.com/H0ussamCl4p/ENSAMC" rel="noopener">GitHub</a><a href="https://vault.hclap.tech/">Vault</a><a href="https://flow.hclap.tech/">Flow</a></nav>
+</div>
+</footer>
+</body>
+</html>
