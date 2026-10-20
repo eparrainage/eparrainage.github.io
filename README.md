@@ -1,6 +1,6 @@
 # Ensamien Parrainage
 
-Landing page of Ensamien Parrainage, served at <https://parrainage.hclap.tech>.
+Landing page of Ensamien Parrainage, served at <https://eparrainage.github.io>.
 
 It presents the program and its apps:
 
