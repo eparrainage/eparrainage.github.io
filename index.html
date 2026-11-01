@@ -68,6 +68,23 @@ p{margin:0}
 .tag.purple{background:var(--tag-purple);color:var(--tag-purple-ink)}
 .tag.red{background:var(--tag-red);color:var(--tag-red-ink)}
 
+/* Announcement bar and hero quick access: live counts from /internships/stats.json and /phd/stats.json */
+.announce{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 6px;padding:8px var(--gutter);background:var(--primary);color:rgba(255,255,255,.9);font-size:.86rem;line-height:1.4;text-align:center}
+.announce a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.announce a:hover{text-decoration-thickness:2px}
+.announce .tag{background:rgba(255,255,255,.18);color:#fff}
+.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:880px;margin:36px auto 0;text-align:left}
+.qt{display:flex;align-items:center;gap:14px;min-width:0;min-height:76px;padding:14px 16px;border:1px solid var(--border);border-radius:var(--r-lg);background:#fff;box-shadow:var(--shadow-card);color:var(--text);text-decoration:none;transition:box-shadow .2s var(--ease),transform .2s var(--ease),border-color .2s var(--ease)}
+.qt:hover{transform:translateY(-2px);border-color:var(--primary-line);box-shadow:0 0 0 1px rgba(15,15,15,.06),0 10px 28px rgba(15,15,15,.1)}
+.qt .brand-mark{width:34px;height:34px}
+.qt-text{display:flex;flex-direction:column;min-width:0;flex:1}
+.qt-text b{color:var(--foreground);font-size:1.02rem;letter-spacing:-.02em}
+.qt-text .sub{color:var(--muted-foreground);font-size:.82rem}
+.qt-num{display:flex;flex-direction:column;align-items:flex-end;gap:3px;white-space:nowrap}
+.qt-num strong{color:var(--primary);font-size:1.15rem;letter-spacing:-.02em;line-height:1.1}
+.qt>.icon{color:var(--muted-foreground)}
+@media(max-width:640px){.quick{grid-template-columns:minmax(0,1fr);margin-top:28px}.announce-more{display:none}main .hero{padding-top:36px}.qt-text .sub{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}}
+
 /* Hero */
 .hero{padding:72px 0 56px;text-align:center}
 .hero h1{margin:18px auto 0;max-width:780px;font-size:clamp(2.2rem,6vw,3.6rem);letter-spacing:-.045em}
@@ -166,7 +183,7 @@ section{padding:48px 0}
 
 footer{margin-top:48px;padding:28px 0 40px;border-top:1px solid var(--border);color:var(--muted-foreground);font-size:.88rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
-footer nav{display:flex;gap:16px;margin-left:auto}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 16px;margin-left:auto}
 footer a{text-decoration:none}
 footer a:hover{color:var(--foreground)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -183,6 +200,8 @@ footer a:hover{color:var(--foreground)}
 <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
 <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></symbol>
 </svg>
+
+<div class="announce" role="region" aria-label="Opportunities"><span class="tag">New</span><a href="/internships/" data-stat="internships">Internships</a><span data-stat="internships-morocco"></span> and <a href="/phd/" data-stat="phd">PhD offers</a><span class="announce-more">, gathered for you and updated twice a day</span>.</div>
 
 <header class="top">
 <div class="wrap">
@@ -201,6 +220,10 @@ footer a:hover{color:var(--foreground)}
 <div class="actions">
 <a class="btn" href="#apps">See our apps<svg class="icon"><use href="#i-arrow"/></svg></a>
 <a class="btn soft" href="#mentoring">How mentoring works</a>
+</div>
+<div class="quick" aria-label="Opportunities">
+<a class="qt" href="/internships/"><span class="brand-mark" aria-hidden="true">I</span><span class="qt-text"><b>Internships</b><span class="sub">PFE, PFA, research · Morocco &amp; abroad</span></span><span class="qt-num"><strong data-stat="internships-count">Open</strong><span class="tag green" data-stat="internships-new" hidden></span></span><svg class="icon"><use href="#i-arrow"/></svg></a>
+<a class="qt" href="/phd/"><span class="brand-mark" aria-hidden="true">D</span><span class="qt-text"><b>PhD positions</b><span class="sub">Engineering, AI · Europe &amp; Morocco</span></span><span class="qt-num"><strong data-stat="phd-count">Open</strong><span class="tag green" data-stat="phd-new" hidden></span></span><svg class="icon"><use href="#i-arrow"/></svg></a>
 </div>
 </section>
 </div>
@@ -356,5 +379,19 @@ footer a:hover{color:var(--foreground)}
 <nav aria-label="Links"><a href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener">LinkedIn</a><a href="https://github.com/H0ussamCl4p/ENSAMC" rel="noopener">GitHub</a><a href="https://vault.hclap.tech/">Vault</a><a href="https://flow.hclap.tech/">Flow</a><a href="/internships/">Internships</a><a href="/phd/">PhD positions</a></nav>
 </div>
 </footer>
+<script>
+// Live counts published next to each opportunity page; the static text stays if a file can't load.
+(function(){
+  function set(name,text){document.querySelectorAll('[data-stat="'+name+'"]').forEach(function(el){el.textContent=text;el.hidden=false;});}
+  function n(x){return Number(x).toLocaleString("en");}
+  [["internships","internships"],["phd","PhD offers"]].forEach(function(p){
+    fetch("/"+p[0]+"/stats.json",{cache:"no-cache"}).then(function(r){return r.ok?r.json():Promise.reject();}).then(function(s){
+      set(p[0],n(s.count)+" "+p[1]);set(p[0]+"-count",n(s.count)+" open");
+      if(s.new)set(p[0]+"-new",n(s.new)+" new");
+      var ma=s.by&&s.by.region&&s.by.region.morocco;if(ma)set(p[0]+"-morocco"," ("+n(ma)+" in Morocco)");
+    }).catch(function(){});
+  });
+})();
+</script>
 </body>
 </html>
