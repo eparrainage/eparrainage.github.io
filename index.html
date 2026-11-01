@@ -127,6 +127,7 @@ section{padding:48px 0}
 .c.e{background:var(--muted)}
 
 /* Opportunities: a card leading to /phd/ */
+.opps{display:grid;gap:20px}
 .opp{display:grid;grid-template-columns:1fr 1.1fr;border:1px solid var(--border);border-radius:var(--r-xl);background:#fff;box-shadow:var(--shadow-card);overflow:hidden}
 .opp .app-body{padding:28px}
 .opp .shot{height:auto;min-height:250px;border-bottom:0;border-left:1px solid var(--border)}
@@ -186,7 +187,7 @@ footer a:hover{color:var(--foreground)}
 <header class="top">
 <div class="wrap">
 <a class="brand" href="/" aria-label="Ensamien Parrainage home"><span class="brand-mark" aria-hidden="true">P</span><span class="brand-word">Ensamien Parrainage</span></a>
-<nav class="nav" aria-label="Sections"><a href="#apps">Apps</a><a href="/phd/">PhD positions</a><a href="#mentoring">Mentoring</a><a href="#drives">Drives</a></nav>
+<nav class="nav" aria-label="Sections"><a href="#apps">Apps</a><a href="/internships/">Internships</a><a href="/phd/">PhD positions</a><a href="#mentoring">Mentoring</a><a href="#drives">Drives</a></nav>
 <a class="btn sm outline" href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener"><svg class="icon"><use href="#i-in"/></svg>Follow</a>
 </div>
 </header>
@@ -261,11 +262,32 @@ footer a:hover{color:var(--foreground)}
 
 <section id="opportunities">
 <div class="wrap">
-<div class="sec-head"><span class="kicker">Opportunities</span><h2>PhD positions, gathered for you.</h2><p>Thinking about a PhD after your engineering degree? We collect open offers so you don't have to search a dozen sites.</p></div>
+<div class="sec-head"><span class="kicker">Opportunities</span><h2>Internships and PhDs, gathered for you.</h2><p>Looking for your PFE, a summer internship or a PhD after your engineering degree? We collect open offers so you don't have to search a dozen sites.</p></div>
+<div class="opps">
+<article class="opp">
+<div class="app-body">
+<div class="app-title"><span class="brand-mark" aria-hidden="true">I</span><h3>Internships</h3><span class="tag green">Updated daily</span></div>
+<p>PFE, PFA and research internships in AI, machine learning, data, cloud, DevOps, DevSecOps and cybersecurity, in Morocco and abroad.</p>
+<ul class="feats">
+<li><svg class="icon"><use href="#i-check"/></svg>Filter by topic and by type: PFE, PFA, research</li>
+<li><svg class="icon"><use href="#i-check"/></svg>Search a company or a city, like Casablanca or Rabat</li>
+<li><svg class="icon"><use href="#i-check"/></svg>Share an offer with a friend on WhatsApp in one tap</li>
+</ul>
+<div class="app-foot"><a class="btn" href="/internships/">Browse internships<svg class="icon"><use href="#i-arrow"/></svg></a><span class="who">For all students</span></div>
+</div>
+<div class="shot" aria-hidden="true"><div class="win">
+<div class="win-bar"><i></i><i></i><i></i><span>eparrainage.github.io/internships</span></div>
+<div class="offers">
+<div class="mini"><div class="tags"><span class="tag green">New</span><span class="tag purple">PFE</span><span class="tag red">Cybersecurity</span></div><b>Stage PFE: SOC analyst</b><span class="m">Casablanca · 6 months</span></div>
+<div class="mini"><div class="tags"><span class="tag purple">PFE</span><span class="tag purple">AI</span></div><b>Stage PFE: LLM agents for customer support</b><span class="m">Rabat · 4-6 months</span></div>
+<div class="mini"><div class="tags"><span class="tag gray">Internship</span><span class="tag yellow">DevOps</span><span class="tag blue">Cloud</span></div><b>DevOps intern: Kubernetes and CI/CD</b><span class="m">Remote · 3 months</span></div>
+</div>
+</div></div>
+</article>
 <article class="opp">
 <div class="app-body">
 <div class="app-title"><span class="brand-mark" aria-hidden="true">D</span><h3>PhD positions</h3><span class="tag green">Updated daily</span></div>
-<p>Open PhD offers in robotics, electromechanical and electrical engineering across Europe and Morocco, refreshed twice a day.</p>
+<p>Open PhD offers in robotics, electrical engineering, AI, machine learning, cybersecurity and cloud across Europe and Morocco, refreshed twice a day.</p>
 <ul class="feats">
 <li><svg class="icon"><use href="#i-check"/></svg>Filter by topic, search a university or a country</li>
 <li><svg class="icon"><use href="#i-check"/></svg>Deadlines at a glance, closing-soon offers flagged</li>
@@ -282,6 +304,7 @@ footer a:hover{color:var(--foreground)}
 </div>
 </div></div>
 </article>
+</div>
 </div>
 </section>
 
@@ -330,7 +353,7 @@ footer a:hover{color:var(--foreground)}
 <footer>
 <div class="wrap">
 <span>Ensamien Parrainage. A student initiative, not an official school service.</span>
-<nav aria-label="Links"><a href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener">LinkedIn</a><a href="https://github.com/H0ussamCl4p/ENSAMC" rel="noopener">GitHub</a><a href="https://vault.hclap.tech/">Vault</a><a href="https://flow.hclap.tech/">Flow</a><a href="/phd/">PhD positions</a></nav>
+<nav aria-label="Links"><a href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener">LinkedIn</a><a href="https://github.com/H0ussamCl4p/ENSAMC" rel="noopener">GitHub</a><a href="https://vault.hclap.tech/">Vault</a><a href="https://flow.hclap.tech/">Flow</a><a href="/internships/">Internships</a><a href="/phd/">PhD positions</a></nav>
 </div>
 </footer>
 </body>
