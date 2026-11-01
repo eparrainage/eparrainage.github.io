@@ -126,6 +126,18 @@ section{padding:48px 0}
 .c.y{background:var(--tag-yellow);color:var(--tag-yellow-ink)}
 .c.e{background:var(--muted)}
 
+/* Opportunities: a card leading to /phd/ */
+.opp{display:grid;grid-template-columns:1fr 1.1fr;border:1px solid var(--border);border-radius:var(--r-xl);background:#fff;box-shadow:var(--shadow-card);overflow:hidden}
+.opp .app-body{padding:28px}
+.opp .shot{height:auto;min-height:250px;border-bottom:0;border-left:1px solid var(--border)}
+.offers{display:grid;gap:8px;padding:12px}
+.mini{padding:9px 11px;border:1px solid var(--border);border-radius:var(--r-md);background:#fff}
+.mini .tags{display:flex;gap:5px;margin-bottom:5px}
+.mini .tag{font-size:.6rem;min-height:16px;padding:0 5px}
+.mini b{display:block;color:var(--foreground);font-size:.76rem;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini span.m{display:block;margin-top:2px;color:var(--muted-foreground);font-size:.66rem}
+@media(max-width:760px){.opp{grid-template-columns:1fr}.opp .shot{border-left:0;border-top:1px solid var(--border);min-height:0;padding-bottom:0}}
+
 /* Mentoring */
 .cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
 .card{padding:22px;border:1px solid var(--border);border-radius:var(--r-lg);background:#fff}
@@ -174,7 +186,7 @@ footer a:hover{color:var(--foreground)}
 <header class="top">
 <div class="wrap">
 <a class="brand" href="/" aria-label="Ensamien Parrainage home"><span class="brand-mark" aria-hidden="true">P</span><span class="brand-word">Ensamien Parrainage</span></a>
-<nav class="nav" aria-label="Sections"><a href="#apps">Apps</a><a href="#mentoring">Mentoring</a><a href="#drives">Drives</a></nav>
+<nav class="nav" aria-label="Sections"><a href="#apps">Apps</a><a href="/phd/">PhD positions</a><a href="#mentoring">Mentoring</a><a href="#drives">Drives</a></nav>
 <a class="btn sm outline" href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener"><svg class="icon"><use href="#i-in"/></svg>Follow</a>
 </div>
 </header>
@@ -247,6 +259,32 @@ footer a:hover{color:var(--foreground)}
 </div>
 </section>
 
+<section id="opportunities">
+<div class="wrap">
+<div class="sec-head"><span class="kicker">Opportunities</span><h2>PhD positions, gathered for you.</h2><p>Thinking about a PhD after your engineering degree? We collect open offers so you don't have to search a dozen sites.</p></div>
+<article class="opp">
+<div class="app-body">
+<div class="app-title"><span class="brand-mark" aria-hidden="true">D</span><h3>PhD positions</h3><span class="tag green">Updated daily</span></div>
+<p>Open PhD offers in robotics, electromechanical and electrical engineering across Europe and Morocco, refreshed twice a day.</p>
+<ul class="feats">
+<li><svg class="icon"><use href="#i-check"/></svg>Filter by topic, search a university or a country</li>
+<li><svg class="icon"><use href="#i-check"/></svg>Deadlines at a glance, closing-soon offers flagged</li>
+<li><svg class="icon"><use href="#i-check"/></svg>Share an offer with a friend on WhatsApp in one tap</li>
+</ul>
+<div class="app-foot"><a class="btn" href="/phd/">Browse PhD positions<svg class="icon"><use href="#i-arrow"/></svg></a><span class="who">For final-year students</span></div>
+</div>
+<div class="shot" aria-hidden="true"><div class="win">
+<div class="win-bar"><i></i><i></i><i></i><span>eparrainage.github.io/phd</span></div>
+<div class="offers">
+<div class="mini"><div class="tags"><span class="tag green">New</span><span class="tag purple">Robotics</span></div><b>PhD in legged robot locomotion</b><span class="m">Sweden · Deadline 30 Nov</span></div>
+<div class="mini"><div class="tags"><span class="tag yellow">Electrical</span></div><b>Power electronics for fast EV chargers</b><span class="m">Germany · Deadline 15 Dec</span></div>
+<div class="mini"><div class="tags"><span class="tag blue">Electromechanical</span><span class="tag purple">Robotics</span></div><b>Mechatronic actuators for exoskeletons</b><span class="m">France · Deadline 10 Jan</span></div>
+</div>
+</div></div>
+</article>
+</div>
+</section>
+
 <section id="mentoring">
 <div class="wrap">
 <div class="sec-head"><span class="kicker">Mentoring</span><h2>A mentor from day one.</h2><p>Every newcomer gets an older student who has been through the same courses, the same exams and the same doubts.</p></div>
@@ -292,7 +330,7 @@ footer a:hover{color:var(--foreground)}
 <footer>
 <div class="wrap">
 <span>Ensamien Parrainage. A student initiative, not an official school service.</span>
-<nav aria-label="Links"><a href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener">LinkedIn</a><a href="https://github.com/H0ussamCl4p/ENSAMC" rel="noopener">GitHub</a><a href="https://vault.hclap.tech/">Vault</a><a href="https://flow.hclap.tech/">Flow</a></nav>
+<nav aria-label="Links"><a href="https://www.linkedin.com/company/ensamien-parrainage/" rel="noopener">LinkedIn</a><a href="https://github.com/H0ussamCl4p/ENSAMC" rel="noopener">GitHub</a><a href="https://vault.hclap.tech/">Vault</a><a href="https://flow.hclap.tech/">Flow</a><a href="/phd/">PhD positions</a></nav>
 </div>
 </footer>
 </body>
